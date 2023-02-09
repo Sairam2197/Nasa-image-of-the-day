@@ -12,7 +12,7 @@ content = request.json()
 
 # Getting title, image and explanation from the content dictionary
 st.header(content["title"])
-st.image(content["hdurl"])
+st.image(content["url"])
 st.button("Download HD Image") # added download button
 st.write(content["explanation"])
 
