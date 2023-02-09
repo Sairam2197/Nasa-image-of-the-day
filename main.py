@@ -12,8 +12,11 @@ content = request.json()
 
 # Getting title, image and explanation from the content dictionary
 st.header(content["title"])
+filename = content["title"]
 st.image(content["url"])
-st.button("Download HD Image") # added download button
+st.download_button(label="Download Image",
+                   data=content["hdurl"],
+                   file_name=f"{filename}.jpg")
 st.write(content["explanation"])
 
 # download function
@@ -24,3 +27,5 @@ get_image.raw.decode_content = True
 if st.button:
     with open("image.jpg", "wb") as file:
         file.write(get_image.content)
+
+
